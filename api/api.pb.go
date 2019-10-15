@@ -283,12 +283,12 @@ func (m *GetSongsByTitleRequest) GetTitle() string {
 }
 
 func init() {
-	proto.RegisterType((*GetRequest)(nil), "RadioReader.GetRequest")
-	proto.RegisterType((*Song)(nil), "RadioReader.Song")
-	proto.RegisterType((*Response)(nil), "RadioReader.Response")
-	proto.RegisterType((*SongCountResponse)(nil), "RadioReader.SongCountResponse")
-	proto.RegisterType((*GetSongsByArtistRequest)(nil), "RadioReader.GetSongsByArtistRequest")
-	proto.RegisterType((*GetSongsByTitleRequest)(nil), "RadioReader.GetSongsByTitleRequest")
+	proto.RegisterType((*GetRequest)(nil), "RadioReader-Go.GetRequest")
+	proto.RegisterType((*Song)(nil), "RadioReader-Go.Song")
+	proto.RegisterType((*Response)(nil), "RadioReader-Go.Response")
+	proto.RegisterType((*SongCountResponse)(nil), "RadioReader-Go.SongCountResponse")
+	proto.RegisterType((*GetSongsByArtistRequest)(nil), "RadioReader-Go.GetSongsByArtistRequest")
+	proto.RegisterType((*GetSongsByTitleRequest)(nil), "RadioReader-Go.GetSongsByTitleRequest")
 }
 
 func init() { proto.RegisterFile("api/api.proto", fileDescriptor_1b40cafcd4234784) }
@@ -347,7 +347,7 @@ func NewRadioReaderServiceClient(cc *grpc.ClientConn) RadioReaderServiceClient {
 
 func (c *radioReaderServiceClient) AddSong(ctx context.Context, in *Song, opts ...grpc.CallOption) (*Response, error) {
 	out := new(Response)
-	err := c.cc.Invoke(ctx, "/RadioReader.radioReaderService/AddSong", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/RadioReader-Go.radioReaderService/AddSong", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -356,7 +356,7 @@ func (c *radioReaderServiceClient) AddSong(ctx context.Context, in *Song, opts .
 
 func (c *radioReaderServiceClient) GetAllSongs(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*Response, error) {
 	out := new(Response)
-	err := c.cc.Invoke(ctx, "/RadioReader.radioReaderService/GetAllSongs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/RadioReader-Go.radioReaderService/GetAllSongs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -365,7 +365,7 @@ func (c *radioReaderServiceClient) GetAllSongs(ctx context.Context, in *GetReque
 
 func (c *radioReaderServiceClient) GetSongPlays(ctx context.Context, in *Song, opts ...grpc.CallOption) (*SongCountResponse, error) {
 	out := new(SongCountResponse)
-	err := c.cc.Invoke(ctx, "/RadioReader.radioReaderService/GetSongPlays", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/RadioReader-Go.radioReaderService/GetSongPlays", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -374,7 +374,7 @@ func (c *radioReaderServiceClient) GetSongPlays(ctx context.Context, in *Song, o
 
 func (c *radioReaderServiceClient) GetSongsByArtist(ctx context.Context, in *GetSongsByArtistRequest, opts ...grpc.CallOption) (*Response, error) {
 	out := new(Response)
-	err := c.cc.Invoke(ctx, "/RadioReader.radioReaderService/GetSongsByArtist", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/RadioReader-Go.radioReaderService/GetSongsByArtist", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -383,7 +383,7 @@ func (c *radioReaderServiceClient) GetSongsByArtist(ctx context.Context, in *Get
 
 func (c *radioReaderServiceClient) GetSongsByTitle(ctx context.Context, in *GetSongsByTitleRequest, opts ...grpc.CallOption) (*Response, error) {
 	out := new(Response)
-	err := c.cc.Invoke(ctx, "/RadioReader.radioReaderService/GetSongsByTitle", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/RadioReader-Go.radioReaderService/GetSongsByTitle", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -433,7 +433,7 @@ func _RadioReaderService_AddSong_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/RadioReader.radioReaderService/AddSong",
+		FullMethod: "/RadioReader-Go.radioReaderService/AddSong",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RadioReaderServiceServer).AddSong(ctx, req.(*Song))
@@ -451,7 +451,7 @@ func _RadioReaderService_GetAllSongs_Handler(srv interface{}, ctx context.Contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/RadioReader.radioReaderService/GetAllSongs",
+		FullMethod: "/RadioReader-Go.radioReaderService/GetAllSongs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RadioReaderServiceServer).GetAllSongs(ctx, req.(*GetRequest))
@@ -469,7 +469,7 @@ func _RadioReaderService_GetSongPlays_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/RadioReader.radioReaderService/GetSongPlays",
+		FullMethod: "/RadioReader-Go.radioReaderService/GetSongPlays",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RadioReaderServiceServer).GetSongPlays(ctx, req.(*Song))
@@ -487,7 +487,7 @@ func _RadioReaderService_GetSongsByArtist_Handler(srv interface{}, ctx context.C
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/RadioReader.radioReaderService/GetSongsByArtist",
+		FullMethod: "/RadioReader-Go.radioReaderService/GetSongsByArtist",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RadioReaderServiceServer).GetSongsByArtist(ctx, req.(*GetSongsByArtistRequest))
@@ -505,7 +505,7 @@ func _RadioReaderService_GetSongsByTitle_Handler(srv interface{}, ctx context.Co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/RadioReader.radioReaderService/GetSongsByTitle",
+		FullMethod: "/RadioReader-Go.radioReaderService/GetSongsByTitle",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RadioReaderServiceServer).GetSongsByTitle(ctx, req.(*GetSongsByTitleRequest))
@@ -514,7 +514,7 @@ func _RadioReaderService_GetSongsByTitle_Handler(srv interface{}, ctx context.Co
 }
 
 var _RadioReaderService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "RadioReader.radioReaderService",
+	ServiceName: "RadioReader-Go.radioReaderService",
 	HandlerType: (*RadioReaderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

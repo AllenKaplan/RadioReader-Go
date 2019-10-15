@@ -1,6 +1,6 @@
-module github.com/RadioReader
-
 go 1.13
+
+module github.com/RadioReader-Go
 
 require (
 	github.com/golang/protobuf v1.3.2

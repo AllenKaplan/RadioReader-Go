@@ -6,7 +6,7 @@ import (
 	"log"
 	"net"
 
-	api "github.com/AllenKaplan/RadioReader"
+	api "github.com/AllenKaplan/RadioReader-Go/api"
 )
 const(
 	PORT = 14586
