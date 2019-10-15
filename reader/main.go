@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"time"
 
-	"google.golang.org/grpc"
 	api "github.com/RadioReader/api"
+	"google.golang.org/grpc"
 )
 
 const(

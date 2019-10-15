@@ -6,7 +6,7 @@ import (
 	"log"
 	"net"
 
-	api "github.com/RadioReader/api/handler.go"
+	api "github.com/AllenKaplan/RadioReader"
 )
 const(
 	PORT = 14586
@@ -23,10 +23,16 @@ func main() {
 
 
 	s := api.Server{}
+	db, err := api.CreateConnection()
+	defer db.Close()
+
+	if err != nil {
+		log.Fatalf("could not connect to db: %v", err)
+	}
 	grpcServer := grpc.NewServer()
 
 	// attach the RR service to the server
-	api.RegisterRadioReaderServiceServer(grpcServer, & s)
+	api.RegisterRadioReaderServiceServer(grpcServer, &s)
 
 	if err := grpcServer.Serve(lis);
 	err != nil {

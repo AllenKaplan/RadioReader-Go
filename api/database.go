@@ -1,11 +1,10 @@
-package main
+package RadioReader
 
-import {
+import (
 	"fmt"
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"os"
-}
+)
 
 func CreateConnection() (*gorm.DB, error) {
 	// Get database details from environment variables
@@ -14,11 +13,12 @@ func CreateConnection() (*gorm.DB, error) {
 	DBName := os.Getenv("DB_NAME")
 	password := os.Getenv("DB_PASSWORD")
 
-	return gorm.Open(
+	db, err := gorm.Open(
 		"postgres",
 		fmt.Sprintf(
 			"host=%s user=%s dbname=%s sslmode=disable password=%s",
 			host, user, DBName, password,
-		),
-	)
+		))
+
+	return db, err
 }

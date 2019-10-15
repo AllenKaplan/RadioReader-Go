@@ -1,0 +1,32 @@
+# docker-compose.yml
+version: '3.1'
+
+services:
+
+  radioreader-client:
+    build: ./client
+    ports:
+      - 50051:50051
+
+  radioreader-server:
+    build: ./server
+    ports:
+      - 50053:50051
+    environment:
+        DB_NAME: "postgres"
+        DB_HOST: "database"
+        DB_PORT: "5432"
+        DB_USER: "postgres"
+        DB_PASSWORD: "password"
+    depends_on:
+      - database
+
+  radioreader-reader:
+    build: ./reader
+    ports:
+      - 50052:50051
+
+  database:
+    image: postgres
+    ports:
+      - 5432:5432
