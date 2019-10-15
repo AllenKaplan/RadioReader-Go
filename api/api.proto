@@ -1,0 +1,36 @@
+syntax = "proto3";
+package RadioReader;
+
+message GetRequest {}
+
+message Song {
+    string artist = 1;
+    string title = 2;
+}
+
+message Response {
+    bool created = 1;
+    Song song = 2;
+    repeated Song songs = 3;
+}
+
+message SongCountResponse {
+    Song song = 1;
+    int32 plays = 2;
+}
+
+message GetSongsByArtistRequest {
+    string artist = 1;
+}
+
+message GetSongsByTitleRequest {
+    string title = 1;
+}
+
+service radioReaderService {
+    rpc AddSong(Song) returns (Response);
+    rpc GetAllSongs(GetRequest) returns (Response);
+    rpc GetSongPlays(Song) returns (SongCountResponse);
+    rpc GetSongsByArtist (GetSongsByArtistRequest) returns (Response);
+    rpc GetSongsByTitle (GetSongsByTitleRequest) returns (Response);
+}
