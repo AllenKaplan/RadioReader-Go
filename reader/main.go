@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"time"
 
-	api "github.com/RadioReader/api"
+	api "github.com/AllenKaplan/RadioReader-Go/api"
 	"google.golang.org/grpc"
 )
 
